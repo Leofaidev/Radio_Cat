@@ -1,0 +1,31 @@
+# Python / Django
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+backend/staticfiles/
+backend/media/
+backend/*.egg-info/
+backend/.env
+
+# Node / Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Root-level test artifacts
+node_modules/
+auto_login.html
+test_browser.js
+ss_*.png
+screenshot_*.png
+package.json
+package-lock.json
+
+# Env files (keep .env.example, ignore real .env)
+.env
+
+# OS
+.DS_Store
+Thumbs.db

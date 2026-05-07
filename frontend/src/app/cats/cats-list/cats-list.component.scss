@@ -1,0 +1,51 @@
+.cats-list-container {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .empty-state {
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px;
+      gap: 16px;
+
+      mat-icon {
+        font-size: 64px;
+        width: 64px;
+        height: 64px;
+        color: #bdbdbd;
+      }
+
+      p {
+        font-size: 18px;
+        color: #757575;
+      }
+    }
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 700px;
+  }
+}

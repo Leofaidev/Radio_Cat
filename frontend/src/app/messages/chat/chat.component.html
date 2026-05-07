@@ -1,0 +1,59 @@
+<div class="chat-container">
+  <mat-card class="chat-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>forum</mat-icon>
+        General Breeders Chat
+        <span class="status-indicator" [class.connected]="isConnected" [class.disconnected]="!isConnected">
+          <mat-icon>{{ isConnected ? 'wifi' : 'wifi_off' }}</mat-icon>
+          {{ isConnected ? 'Connected' : 'Disconnected' }}
+        </span>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Loading message history...</p>
+      </div>
+
+      <div class="messages-wrapper" #messagesContainer *ngIf="!isLoading">
+        <div *ngIf="messages.length === 0" class="no-messages">
+          <mat-icon>chat_bubble_outline</mat-icon>
+          <p>No messages yet. Start the conversation!</p>
+        </div>
+
+        <div *ngFor="let msg of messages"
+          class="message-row"
+          [class.own-message]="isOwnMessage(msg)"
+          [class.other-message]="!isOwnMessage(msg)">
+          <div class="message-bubble">
+            <div class="message-sender" *ngIf="!isOwnMessage(msg)">{{ msg.sender }}</div>
+            <div class="message-text">{{ msg.text }}</div>
+            <div class="message-time">{{ formatTime(msg.timestamp) }}</div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="chat-input-area">
+      <mat-form-field appearance="outline" class="message-input">
+        <mat-label>Type a message...</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="newMessage"
+          (keydown)="onKeyDown($event)"
+          [disabled]="!isConnected"
+          rows="1"
+          placeholder="Press Enter to send, Shift+Enter for new line">
+        </textarea>
+      </mat-form-field>
+      <button mat-fab color="primary"
+        (click)="sendMessage()"
+        [disabled]="!newMessage.trim() || !isConnected"
+        class="send-btn">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

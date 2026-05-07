@@ -1,0 +1,40 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  padding: 16px 0;
+
+  mat-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 16px;
+
+    mat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    mat-form-field {
+      margin-bottom: 8px;
+    }
+
+    mat-checkbox {
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .submit-btn {
+      margin-top: 8px;
+      height: 48px;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+}

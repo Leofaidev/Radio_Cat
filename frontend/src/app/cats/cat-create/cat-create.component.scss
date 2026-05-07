@@ -1,0 +1,26 @@
+.cat-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  mat-form-field {
+    margin-bottom: 12px;
+  }
+
+  mat-checkbox {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+  }
+}

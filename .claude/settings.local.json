@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(pip *)",
+      "Bash(PGPASSWORD=12345 \"/c/Program Files/PostgreSQL/18/bin/psql.exe\" -U postgres -h localhost -p 5432 -c \"SELECT version\\(\\);\")",
+      "Bash(PGPASSWORD=12345 \"/c/Program Files/PostgreSQL/18/bin/psql.exe\" -U postgres -h localhost -p 5432 -c \"DROP DATABASE IF EXISTS catbreeders_dev;\")",
+      "Bash(PGPASSWORD=12345 \"/c/Program Files/PostgreSQL/18/bin/psql.exe\" -U postgres -h localhost -p 5432 -c \"CREATE DATABASE catbreeders_dev;\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Leo\\\\DEV\\\\Cat001\" -Recurse -Name | Where-Object { $_ -notmatch \"venv|__pycache__|\\\\.pyc|node_modules|migrations\" } | Sort-Object)",
+      "PowerShell(npm *)",
+      "PowerShell(Get-Process *)",
+      "WebFetch(domain:localhost)",
+      "PowerShell(Start-Process \"http://localhost:4200\")",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:8000/api/register/\" -Method OPTIONS -UseBasicParsing -ErrorAction Stop; \"Backend OK: $\\($r.StatusCode\\)\" } catch { \"Backend response: $\\($_.Exception.Message\\)\" })",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

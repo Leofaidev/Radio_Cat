@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isLoggedIn">
+    <button mat-button routerLink="/cats">
+      <mat-icon>pets</mat-icon>
+      My Cats
+    </button>
+    <button mat-button routerLink="/messages/chat">
+      <mat-icon>chat</mat-icon>
+      Chat
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>{{ currentUser?.username }}</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </ng-container>
+  <ng-container *ngIf="!isLoggedIn">
+    <button mat-button routerLink="/auth/login">Login</button>
+    <button mat-button routerLink="/auth/register">Register</button>
+  </ng-container>
+</mat-toolbar>
+
+<div class="page-content">
+  <router-outlet></router-outlet>
+</div>

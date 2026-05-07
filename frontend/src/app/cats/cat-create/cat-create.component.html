@@ -1,0 +1,52 @@
+<div class="cat-form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>add_circle</mat-icon>
+        Add New Cat
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="catForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Cat Name</mat-label>
+          <input matInput formControlName="name" placeholder="e.g. Whiskers">
+          <mat-icon matSuffix>pets</mat-icon>
+          <mat-error *ngIf="catForm.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Breed</mat-label>
+          <input matInput formControlName="breed" placeholder="e.g. Persian">
+          <mat-error *ngIf="catForm.get('breed')?.hasError('required')">Breed is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Age (years)</mat-label>
+          <input matInput type="number" formControlName="age" placeholder="0">
+          <mat-error *ngIf="catForm.get('age')?.hasError('required')">Age is required</mat-error>
+          <mat-error *ngIf="catForm.get('age')?.hasError('min')">Age must be 0 or more</mat-error>
+          <mat-error *ngIf="catForm.get('age')?.hasError('max')">Age cannot exceed 30</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Color</mat-label>
+          <input matInput formControlName="color" placeholder="e.g. White with orange spots">
+        </mat-form-field>
+
+        <mat-checkbox formControlName="is_hairy">Long-haired / Hairy</mat-checkbox>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+        <div class="form-actions">
+          <button mat-button type="button" (click)="cancel()">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="catForm.invalid || isLoading">
+            <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+            <span *ngIf="!isLoading">Save Cat</span>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

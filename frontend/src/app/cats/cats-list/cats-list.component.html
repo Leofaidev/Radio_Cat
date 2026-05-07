@@ -1,0 +1,81 @@
+<div class="cats-list-container">
+  <div class="header-row">
+    <h1>My Cats</h1>
+    <button mat-raised-button color="primary" (click)="createCat()">
+      <mat-icon>add</mat-icon>
+      Add Cat
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-container *ngIf="!isLoading">
+    <mat-card *ngIf="cats.length === 0" class="empty-state">
+      <mat-card-content>
+        <mat-icon>pets</mat-icon>
+        <p>No cats yet. Add your first cat!</p>
+        <button mat-raised-button color="primary" (click)="createCat()">Add Cat</button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="cats.length > 0">
+      <mat-card-content>
+        <div class="table-container">
+          <table mat-table [dataSource]="cats" class="full-width">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let cat">{{ cat.name }}</td>
+            </ng-container>
+
+            <!-- Breed Column -->
+            <ng-container matColumnDef="breed">
+              <th mat-header-cell *matHeaderCellDef>Breed</th>
+              <td mat-cell *matCellDef="let cat">{{ cat.breed }}</td>
+            </ng-container>
+
+            <!-- Age Column -->
+            <ng-container matColumnDef="age">
+              <th mat-header-cell *matHeaderCellDef>Age</th>
+              <td mat-cell *matCellDef="let cat">{{ cat.age }} yr{{ cat.age !== 1 ? 's' : '' }}</td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="color">
+              <th mat-header-cell *matHeaderCellDef>Color</th>
+              <td mat-cell *matCellDef="let cat">{{ cat.color || '-' }}</td>
+            </ng-container>
+
+            <!-- Is Hairy Column -->
+            <ng-container matColumnDef="is_hairy">
+              <th mat-header-cell *matHeaderCellDef>Hairy</th>
+              <td mat-cell *matCellDef="let cat">
+                <mat-icon [style.color]="cat.is_hairy ? '#4caf50' : '#9e9e9e'">
+                  {{ cat.is_hairy ? 'check_circle' : 'cancel' }}
+                </mat-icon>
+              </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let cat">
+                <button mat-icon-button color="primary" (click)="editCat(cat)" matTooltip="Edit">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteCat(cat)" matTooltip="Delete">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
