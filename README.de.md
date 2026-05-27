@@ -1,4 +1,4 @@
-**🌐 Sprache:** [English](README.en.md) · [Español](README.es.md) · Deutsch · [Suomi](README.fi.md) · [Русский](README.ru.md) · [中文](README.zh.md)
+**🌐 Sprache:** [English](README.md) · [Español](README.es.md) · Deutsch · [Suomi](README.fi.md) · [Русский](README.ru.md) · [中文](README.zh.md)
 
 ---
 

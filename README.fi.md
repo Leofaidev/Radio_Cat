@@ -1,4 +1,4 @@
-**🌐 Kieli:** [English](README.en.md) · [Español](README.es.md) · [Deutsch](README.de.md) · Suomi · [Русский](README.ru.md) · [中文](README.zh.md)
+**🌐 Kieli:** [English](README.md) · [Español](README.es.md) · [Deutsch](README.de.md) · Suomi · [Русский](README.ru.md) · [中文](README.zh.md)
 
 ---
 
