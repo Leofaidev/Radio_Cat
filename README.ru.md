@@ -1,3 +1,7 @@
+**🌐 Язык:** [English](README.en.md) · [Español](README.es.md) · [Deutsch](README.de.md) · [Suomi](README.fi.md) · Русский · [中文](README.zh.md)
+
+---
+
 # Cat Breeders Hub
 
 Полнофункциональное веб-приложение для заводчиков кошек, позволяющее управлять питомцами и общаться в режиме реального времени.

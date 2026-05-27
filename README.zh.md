@@ -1,3 +1,7 @@
+**🌐 语言：** [English](README.en.md) · [Español](README.es.md) · [Deutsch](README.de.md) · [Suomi](README.fi.md) · [Русский](README.ru.md) · 中文
+
+---
+
 # Cat Breeders Hub
 
 一个面向猫咪繁育者的全栈 Web 应用，用于管理猫咪信息并通过实时聊天进行沟通。

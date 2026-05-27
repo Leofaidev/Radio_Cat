@@ -1,3 +1,7 @@
+**🌐 Sprache:** [English](README.en.md) · [Español](README.es.md) · Deutsch · [Suomi](README.fi.md) · [Русский](README.ru.md) · [中文](README.zh.md)
+
+---
+
 # Cat Breeders Hub
 
 Eine Full-Stack-Webanwendung für Katzenzüchter zur Verwaltung ihrer Katzen und zur Kommunikation über Echtzeit-Chat.
